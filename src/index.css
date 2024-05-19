@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: grey;
+}
+
+body {
+  height: 100vh;
+}
+li {
+  cursor: pointer;
+}
+li:hover {
+  color: white !important;
+}
+.btn-hover {
+  background-color: white;
+}
+.yellow-border {
+  border-bottom: 2px solid yellow;
+  width: 30%;
+  margin-top: 10px;
+}
+.accordion-button::after{
+    background-image: none;
+
+}
