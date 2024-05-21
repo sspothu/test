@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Data from "../data/Data.js";
+import {Data }from "../data/Data.js";
 import Text from "./Text.jsx";
 import { useLocation, useNavigate } from "react-router-dom";
 // import { Addproducts } from "../services/Getproducts.js";
@@ -7,11 +7,24 @@ import { useLocation, useNavigate } from "react-router-dom";
 const Input = ({ setArray }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  let [data, setData] = useState(Data);
+  const edit = location.state
+  const [data, setData] = useState(Data)
   function getValue(name) {
     let index = data.findIndex((v) => v.name === name);
     return data[index].value;
   }
+  // Change handler function to update the state when a value changes
+  const handleChange = (value, item) => {
+    // Find the index of the item in the data array
+    const index = data.findIndex((x) => x.name === item.name);
+    // Create a copy of the data array
+    const updatedData = [...data];
+    // Update the value of the item in the copy
+    updatedData[index].value = value;
+    // Set the updated data array as the new state
+    setData(updatedData);
+  };
+  
   useEffect(() => {
     // Set the form data with the record data from the location state
     if (location.state) {
@@ -80,29 +93,6 @@ const Input = ({ setArray }) => {
             item.errorMessage = ``;
           }
       }
-      // if (item.value === "") {
-      //   item.error = true;
-      //   item.errorMessage = `${item.name} should not be empty`;
-      //   isValid = false;
-
-      // }
-      // else if (item.name === "email" && !item.value.includes("@")) {
-      //   item.error = true;
-      //   item.errorMessage = "Invalid email format";
-      //   isValid = false;
-      // } else if (item.name === "password" && item.value.length < 6) {
-      //   item.error = true;
-      //   item.errorMessage = "Password should be at least 6 characters long";
-      //   isValid = false;
-      // } else if (item.name === "confirm password" && item.value !== data.find((x) => x.name === "password").value) {
-      //   item.error = true;
-      //   item.errorMessage = "Passwords do not match";
-      //   isValid = false;
-      // }
-      // else {
-      //   item.error = false;
-      //   item.errorMessage = "";
-      // }
     });
     setData(updatedData);
 
@@ -129,7 +119,7 @@ const Input = ({ setArray }) => {
           <div className="form mt-3 mycontainer ">
             <form className="border p-3" onSubmit={submithandler}>
               {data.map((item, index) => (
-                <Text key={index} item={item} />
+                <Text key={index} item={item} edit={edit} onChange={handleChange} />
               ))}
               <div className="mt-3">
                 <button className="btn btn-danger w-50" type="submit">

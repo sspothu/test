@@ -10,6 +10,7 @@ import TableComponent from './components/Table';
 import { useState } from 'react';
 import EmpTable from './components/EmpTable';
 import Form from './components/Form';
+import ProductTable from "./components/ProductTable"
 function App() {
   
   const[array,setArray] = useState([])
@@ -26,6 +27,7 @@ function App() {
       {/* <Route element={<EmpTable />} path='/emptable'/> */}
       <Route element={<Form setArray={setArray}/>} path='/empform'/>
       <Route element={<EmpTable array={array}/>} path='/emptable'/>
+      <Route element={<ProductTable/>} path='/productstable'/>
     </Routes>
     
     </BrowserRouter>

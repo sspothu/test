@@ -5,30 +5,7 @@ import Newtable from './Newtable'
 import Modal from "../common/Modal"
 
 const EmpTable = ({array}) => {
-    // const data = [
-    //     {
-    //       key: '1',
-    //       Name: 'Mike',
-    //       Email : "pothusaisurya123@gmail.com",
-    //       Address: '10 Downing Street',
-    //       Phone : 12345
-    //     },
-    //     {
-    //       key: '2',
-    //       Name: 'John',
-    //       Email : "pothusaisurya123@gmail.com",
-    //       Address: '10 Downing Street',
-    //       Phone : 12345
-    //     },
-    //     {
-    //         key: '3',
-    //         Name: 'John',
-    //         Email : "pothusaisurya123@gmail.com",
-    //         Address: '10 Downing Street',
-    //         Phone : 12345
-    //       },
 
-    //   ];
     const colums = [{
         key:"0",
         title:<input type='checkbox'/>,

@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import Accordion from "../components/Accordion"
 import Cards from '../components/Cards';
 import Testimonial from '../common/Testmonial';
+import EmpForm from '../components/EmpForm';
 
 
 
@@ -17,6 +18,7 @@ const Home = () => {
     <Cards/>
     <Accordion/>
     <Testimonial/>
+    <EmpForm/>
     <Footer/>
     
 
